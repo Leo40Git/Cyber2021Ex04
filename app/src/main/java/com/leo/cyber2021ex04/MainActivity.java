@@ -23,16 +23,12 @@ public class MainActivity extends AppCompatActivity {
         int boomCount = 0;
         if (clicks % 7 == 0)
             boomCount++;
-        int clicks2 = clicks;
-        while (clicks2 > 0) {
-            if (clicks2 % 10 == 7)
-                boomCount++;
-            clicks2 /= 10;
-        }
+        if (clicks % 10 == 7)
+            boomCount++;
+        if ((clicks / 10) % 10 == 7)
+            boomCount++;
         if (boomCount == 0)
             button.setText("Click number: " + clicks);
-        else if (boomCount == 1)
-            button.setText("BOOM!");
         else
             button.setText("BOOM! x" + boomCount);
     }
